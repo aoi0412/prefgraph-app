@@ -6,7 +6,7 @@ import MainPage from './Pages/page1/MainPage';
 const App = () => {
   const windowSize = useWindowSize();
   return (
-    <div style={{ height: windowSize.height, width: windowSize.width, backgroundColor: 'yellow' }}>
+    <div style={{ height: windowSize.height, width: windowSize.width, backgroundColor: 'white' }}>
       <MainPage />
     </div>
   );

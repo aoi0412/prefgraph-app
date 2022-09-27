@@ -16,7 +16,7 @@ const Text: FC<Props> = ({ size = 'sm', bold = false, children }) => {
   } else {
     fontSize = '20px';
   }
-  return <p style={{ fontSize, fontWeight: bold ? 'bold' : 'normal' }}>{children}</p>;
+  return <p style={{ padding: 0, margin: 0, fontSize, fontWeight: bold ? 'bold' : 'normal' }}>{children}</p>;
 };
 
 export default Text;
