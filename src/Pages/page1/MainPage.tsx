@@ -1,10 +1,18 @@
-import Menu from '../../Layout/Menu';
+import MainPageMenu from './Components/MainPageMenu';
 
 const MainPage = () => {
   const a = true;
   return (
-    <div style={{ display: 'flex', flex: 1, backgroundColor: 'green', height: window.innerHeight }}>
-      <Menu />
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1,
+        backgroundColor: 'green',
+        height: window.innerHeight,
+      }}
+    >
+      <MainPageMenu />
       page1
     </div>
   );
