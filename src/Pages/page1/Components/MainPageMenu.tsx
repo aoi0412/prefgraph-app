@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import Menu from '../../../Layout/Menu';
 import HambergerButton from './Menu/HambergerButton';
+import ListTitle from './Menu/ListTitle';
+import MenuHeader from './Menu/MenuHeader';
+import PrefList from './Menu/PrefList';
 
 const MainPageMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +18,9 @@ const MainPageMenu = () => {
         <HambergerButton onClick={() => setIsMenuOpen(true)} />
       </div>
       <Menu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen}>
-        <p>aiueo</p>
+        <MenuHeader />
+        <ListTitle />
+        <PrefList />
       </Menu>
     </div>
   );
