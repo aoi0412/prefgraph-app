@@ -6,7 +6,6 @@ import PrefGraph from './Components/PrefGraph';
 import SwitchList from './Components/SwitchList';
 
 const MainPage = () => {
-  const a = true;
   const deviceMode = getDevicemode(useWindowSize().width);
   return (
     <div
