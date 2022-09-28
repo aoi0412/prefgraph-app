@@ -1,18 +1,14 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import MenuItem from '../../../../Components/MenuItem';
 import { prefData } from '../../../../types';
+import { usePrefItem } from '../../Hooks/menuItemHook';
 
 type Props = {
   data: prefData;
 };
 const PrefItem: FC<Props> = ({ data }) => {
-  const [isSelected, setIsSelected] = useState(false);
-  const { prefCode, prefName } = data;
-  const onSelect = () => {
-    console.log(prefCode);
-    setIsSelected(!isSelected);
-  };
-  return <MenuItem title={prefName} isSelected={isSelected} onSelect={onSelect} />;
+  const [isSelected, onSelect] = usePrefItem();
+  return <MenuItem title={data.prefName} isSelected={isSelected} onSelect={() => onSelect(data)} />;
 };
 
 export default PrefItem;
