@@ -18,9 +18,7 @@ const Menu: FC<Props> = ({ isOpen, setIsOpen, children }) => {
       <nav className={` DrawerMenuLeft ${deviceMode === 'PC' && 'PCmode'} ${!isOpen && 'DrawerMenuLeft--isClose'}`}>
         {children}
       </nav>
-      {deviceMode !== 'PC' && (
-        <div style={{ zIndex: isOpen ? 0 : -1 }} className="backDrop" onClick={() => setIsOpen(false)} />
-      )}
+      <div className={` backDrop ${isOpen && 'backDrop--isOpen'}`} onClick={() => setIsOpen(false)} />
     </>
   );
 };
