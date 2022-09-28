@@ -1,0 +1,10 @@
+.RadioButton {
+  transition: all 0.3s ease-in-out;
+  border-radius: 20px;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0);
+}
+.RadioButton--isOn {
+  background-color: #61dafb;
+}
