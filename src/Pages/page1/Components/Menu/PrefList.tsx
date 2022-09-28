@@ -1,11 +1,20 @@
-import { FC, useState } from 'react';
-import { prefData } from '../../../../types';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
+import { prefDataListAtom } from '../../../../Utils/recoil';
 import PrefItem from './PrefItem';
 
 const PrefList: FC = () => {
-  const [prefDataList, setPrefDataList] = useState<prefData[]>([]);
+  const prefDataList = useRecoilValue(prefDataListAtom);
   return (
-    <div style={{ display: 'flex', flexGrow: 1, flexDirection: 'column', borderTop: 'solid 1px gray' }}>
+    <div
+      style={{
+        overflowY: 'scroll',
+        display: 'flex',
+        flexGrow: 1,
+        flexDirection: 'column',
+        borderTop: 'solid 1px gray',
+      }}
+    >
       {prefDataList.map((data) => (
         <PrefItem data={data} />
       ))}

@@ -11,9 +11,9 @@ type Props = {
 const MenuItem: FC<Props> = ({ isSelected, title, onSelect }) => (
   <div
     style={{
+      padding: '12px',
       borderBottom: 'solid 1px gray',
       height: '40px',
-      width: '100%',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
