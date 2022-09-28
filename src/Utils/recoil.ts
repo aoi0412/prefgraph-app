@@ -13,7 +13,7 @@ export const selectedPrefDataAtom = atom({
 
 export const selectedPopulationTypeAtom = atom({
   key: 'selectedPopulationTypeAtom',
-  default: [] as populationType[],
+  default: null as populationType | null,
 });
 
 export const isLoadingAtom = atom({

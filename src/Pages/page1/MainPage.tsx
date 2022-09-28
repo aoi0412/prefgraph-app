@@ -3,7 +3,7 @@ import { getDevicemode } from '../../Utils/getDeviceMode';
 import GraphTitle from './Components/GraphTitle';
 import MainPageMenu from './Components/MainPageMenu';
 import PrefGraph from './Components/PrefGraph';
-import SwitchList from './Components/SwitchList';
+import PopulationButtonList from './Components/PopulationButtonList';
 
 const MainPage = () => {
   const deviceMode = getDevicemode(useWindowSize().width);
@@ -30,7 +30,7 @@ const MainPage = () => {
         <GraphTitle />
         <PrefGraph />
         <div style={{ display: 'flex', justifyContent: 'flex-end', backgroundColor: 'black', width: '100%' }}>
-          <SwitchList />
+          <PopulationButtonList />
         </div>
       </div>
     </div>
