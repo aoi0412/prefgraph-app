@@ -28,6 +28,21 @@
   color: #61dafb;
 }
 
+.splashScreen {
+  transition: background-color 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  position: absolute;
+  pointer-events: none;
+}
+
+.splashScreen--isOpen {
+  pointer-events: auto;
+  background-color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
