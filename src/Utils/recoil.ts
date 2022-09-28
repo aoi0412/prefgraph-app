@@ -15,3 +15,8 @@ export const selectedPopulationTypeAtom = atom({
   key: 'selectedPopulationTypeAtom',
   default: [] as populationType[],
 });
+
+export const isLoadingAtom = atom({
+  key: 'isLoadingAtom',
+  default: true,
+});
