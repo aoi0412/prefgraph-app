@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { populationType, prefData } from '../types';
+import { populationType, prefData, prefsPopulationData } from '../types';
 
 export const prefDataListAtom = atom({
   key: 'prefDataListAtom',
@@ -11,9 +11,14 @@ export const selectedPrefDataAtom = atom({
   default: [] as prefData[],
 });
 
+export const prefsPopulationDataAtom = atom({
+  key: 'prefsPopulationDataAtom',
+  default: {} as prefsPopulationData,
+});
+
 export const selectedPopulationTypeAtom = atom({
   key: 'selectedPopulationTypeAtom',
-  default: null as populationType | null,
+  default: '総人口' as populationType,
 });
 
 export const isLoadingAtom = atom({
