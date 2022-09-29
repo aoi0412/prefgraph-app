@@ -68,12 +68,10 @@ export const useFetchPrefList = () => {
 };
 
 export const useFetchPopulation = (prefCode: number) => {
-  const [data, setData] = useState<resultData<populationResult | null> | null>(null);
+  const [result, setResult] = useState<resultData<populationResult | null> | null>(null);
   const [error, setError] = useState<errorResponce | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
   const url = `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${prefCode}`;
-  useEffect(() => {
-    setIsLoading(true);
+  const fetchPopulation = () => {
     if (process.env.REACT_APP_RESAS_API_KEY) {
       axios
         .get(url, { headers: { 'X-API-KEY': process.env.REACT_APP_RESAS_API_KEY } })
@@ -91,7 +89,7 @@ export const useFetchPopulation = (prefCode: number) => {
               description: res.data.description ? res.data.description : '',
             });
           }
-          setData({
+          setResult({
             message: res.data.message,
             result: res.data.result ? res.data.result : null,
           });
@@ -102,9 +100,6 @@ export const useFetchPopulation = (prefCode: number) => {
             message: e.message,
             description: '',
           });
-        })
-        .finally(() => {
-          setIsLoading(false);
         });
     } else {
       setError({
@@ -113,7 +108,7 @@ export const useFetchPopulation = (prefCode: number) => {
         description: '正しいAPIキーを設定してください',
       });
     }
-  }, []);
+  };
 
-  return { data, error, isLoading };
+  return { result, error, fetchPopulation };
 };
