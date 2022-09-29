@@ -3,15 +3,29 @@ export type prefData = {
   prefName: string;
 };
 
-export type graphSingleData = {
+export type populationType = '総人口' | '年少人口' | '生産年齢人口' | '老年人口';
+export type populationSingleData = {
   year: number;
-  [prefName: string]: number;
+  value: number;
+};
+export type populationTypeData = {
+  populationType: populationType;
+  data: populationSingleData[];
+};
+export type prefsPopulationData = {
+  [prefName: string]: populationTypeData[];
+};
+export type dataForGraph = {
+  [type in populationType]?: { year: number; [prefName: string]: number }[];
 };
 
-export type populationType = '総人口' | '年少人口' | '生産年齢人口' | '老年人口';
-
-export type prefDataForGraph = {
-  [title in populationType]: graphSingleData[];
+export type populationData = {
+  year: number;
+  value: number;
+};
+export type populationResult = {
+  boundaryYear: number;
+  data: { label: populationType; data: populationData[] }[];
 };
 
 export type apiResult<T> = {
