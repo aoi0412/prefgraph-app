@@ -2,18 +2,26 @@ import { FC } from 'react';
 import { css } from '@emotion/css';
 import Switch from './Switch';
 import Text from './Text';
+import { errorResponce } from '../types';
 
 type Props = {
   isSelected: boolean;
   title: string;
   onSelect: () => void;
+  error: errorResponce | null;
 };
-const MenuItem: FC<Props> = ({ isSelected, title, onSelect }) => (
+const MenuItem: FC<Props> = ({ isSelected, title, onSelect, error }) => (
   <div className={styles.container}>
-    <div className={styles.textContainer}>
-      <Text size="md">{title}</Text>
-    </div>
-    <Switch isOn={isSelected} setIsOn={onSelect} />
+    {error ? (
+      <div>{error.message}</div>
+    ) : (
+      <>
+        <div className={styles.textContainer}>
+          <Text size="md">{title}</Text>
+        </div>
+        <Switch isOn={isSelected} setIsOn={onSelect} />
+      </>
+    )}
   </div>
 );
 
