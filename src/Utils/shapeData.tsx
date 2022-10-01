@@ -1,4 +1,5 @@
 import { populationResult, populationType, resultData } from '../types';
+import { setRandomColor } from './getRandomColor';
 
 export const apiToGraph = (
   apiData: resultData<populationResult>,
@@ -21,6 +22,7 @@ export const apiToGraph = (
       backgroundColor: string;
     };
   }[] = [];
+  const color = setRandomColor();
   apiData.result.data.forEach((data) => {
     const tmp2: number[] = [];
     data.data.forEach((value) => {
@@ -31,8 +33,8 @@ export const apiToGraph = (
       data: {
         label: prefName,
         data: tmp2,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: color,
+        backgroundColor: color,
       },
     });
   });

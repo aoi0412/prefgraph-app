@@ -13,7 +13,9 @@ export const selectedPrefDataAtom = atom({
 
 export const prefsPopulationDataAtom = atom({
   key: 'prefsPopulationDataAtom',
-  default: {} as prefsPopulationData,
+  default: {
+    defalut: [],
+  } as prefsPopulationData,
 });
 
 export const selectedPopulationTypeAtom = atom({

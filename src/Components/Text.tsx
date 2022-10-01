@@ -10,11 +10,11 @@ type Props = {
 const Text: FC<Props> = ({ size = 'sm', bold = false, children }) => {
   let fontSize;
   if (size === 'sm') {
-    fontSize = '12px';
-  } else if (size === 'md') {
     fontSize = '16px';
-  } else {
+  } else if (size === 'md') {
     fontSize = '20px';
+  } else {
+    fontSize = '40px';
   }
   return <p style={{ padding: 0, margin: 0, fontSize, fontWeight: bold ? 'bold' : 'normal' }}>{children}</p>;
 };
