@@ -29,8 +29,26 @@ module.exports = {
   ],
   ignorePatterns: ['build'], //追加 .eslintignoreに対象外にしているが無いとコンパイルに時間がかかる
   rules: {
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'typeAlias',
+        format: ['camelCase', 'PascalCase'],
+      },
+      {
+        selector: 'variable',
+        types: ['boolean'],
+        format: ['PascalCase'],
+        prefix: ['is', 'should'],
+      },
+    ],
     'no-use-before-define': 'off', //関数や変数が定義される前に使われているとエラーになるデフォルトの機能をoff
-    '@typescript-eslint/no-use-before-define': ['error'], //typescript側のno-use-before-defineを使うようにする
+    '@typescript-eslint/no-use-before-define': [
+      'error',
+      {
+        variables: false,
+      },
+    ], //typescript側のno-use-before-defineを使うようにする
     'import/prefer-default-export': 'off', //named exportがエラーになるので使えるようにoff
     '@typescript-eslint/no-unused-vars': 'off', //unused-importsを使うため削除
     'unused-imports/no-unused-imports': 'error', //不要なimportの削除
@@ -74,6 +92,7 @@ module.exports = {
         allowAsStatement: true,
       },
     ],
+    'react-hooks/exhaustive-deps': 'off',
   },
   settings: {
     'import/resolver': {
