@@ -1,11 +1,11 @@
 import { css } from '@emotion/css';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import Menu from '../../../Layout/Menu';
 import HambergerButton from './Menu/HambergerButton';
 import ListTitle from './Menu/ListTitle';
 import PrefList from './Menu/PrefList';
 
-const MainPageMenu = () => {
+const MainPageMenu: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
