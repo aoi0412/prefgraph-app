@@ -30,7 +30,7 @@ const PrefGraph: FC = () => {
     labels: string[];
     datasets: dataset[];
   } = usePrefGraph();
-  return <Line options={options} data={graphData} height={100} width={150} />;
+  return <Line options={options} data={graphData} height={200} width={300} />;
 };
 
 export default PrefGraph;

@@ -33,13 +33,14 @@ const styles = {
     align-self: flex-end;
   `,
   contentsContainer: css`
-    margin-top: 32px;
     width: 100%;
     display: flex;
+    margin: auto;
     flex-direction: column;
     align-items: center;
+    justify-self: center;
+    top: 0;
     position: relative;
-    justify-content: space-between;
   `,
   graphContainer: css`
     display: 'flex';
@@ -48,7 +49,7 @@ const styles = {
     justify-content: center;
     max-width: 1200px;
     width: 80%;
-    height: 400px;
+    min-height: 400px;
   `,
 };
 export default MainPage;

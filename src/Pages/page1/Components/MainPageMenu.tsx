@@ -21,7 +21,7 @@ const MainPageMenu: FC = () => {
 
 const styles = {
   container: css`
-    height: 100vh;
+    /* height: 100vh; */
   `,
 };
 
