@@ -12,10 +12,10 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { css, cx } from '@emotion/css';
+import Text from '../../../Components/Text';
 import { dataForGraph, dataset } from '../../../types';
 import { dataForGraphDefault, populationTypeList } from '../../../Utils/defaultDatas';
 import { prefsPopulationDataAtom, selectedPopulationTypeAtom, selectedPrefDataAtom } from '../../../Utils/recoil';
-import Text from '../../../Components/Text';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -39,7 +39,7 @@ const PrefGraph = () => {
     datasets: dataset[];
   }>({
     labels: [],
-    datasets: [],
+    datasets: [{ label: 'aiueo', data: [1], borderColor: '#999', backgroundColor: '#999' }],
   });
   useEffect(() => {
     const yearList: string[] = [];
@@ -71,11 +71,10 @@ const PrefGraph = () => {
   useEffect(() => {
     setGraphData(graphDatas[selectedPopulation]);
   }, [selectedPopulation]);
-
   return (
     <>
       <div className={cx(styles.noItemsText, { [styles.opacity]: !graphData.datasets.length })}>
-        <Text size="lg" bold>
+        <Text size="md" bold>
           左のメニューから都道府県を選択しよう
         </Text>
       </div>
@@ -88,9 +87,8 @@ const styles = {
   noItemsText: css`
     transition: opacity 0.4s ease-in-out;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    background-color: white;
+    top: 40%;
+    background-color: rgba(255, 255, 255, 0.5);
     opacity: 0;
   `,
   opacity: css`

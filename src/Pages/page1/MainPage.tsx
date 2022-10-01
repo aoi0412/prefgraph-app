@@ -22,7 +22,6 @@ const styles = {
   container: css`
     display: flex;
     flex-direction: column;
-    flex: 1;
     height: 100%;
     width: 100%;
     @media (min-width: 1000px) {
@@ -35,9 +34,9 @@ const styles = {
   `,
   contentsContainer: css`
     margin-top: 32px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    flex: 1;
     align-items: center;
     justify-content: space-between;
   `,
@@ -48,7 +47,7 @@ const styles = {
     justify-content: center;
     max-width: 1200px;
     width: 80%;
-    height: 100%;
+    height: 400px;
   `,
 };
 export default MainPage;
