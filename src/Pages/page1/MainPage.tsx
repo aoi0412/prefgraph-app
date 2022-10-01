@@ -38,6 +38,7 @@ const styles = {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     justify-content: space-between;
   `,
   graphContainer: css`
