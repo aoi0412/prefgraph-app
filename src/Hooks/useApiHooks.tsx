@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
@@ -6,7 +5,6 @@ import { apiResult, errorResponce, populationResult, prefData, resultData } from
 import { isLoadingAtom, prefDataListAtom } from '../Utils/recoil';
 
 export const useFetchPrefList = () => {
-  // const [data, setData] = useState<resultData<prefData[]> | null>(null);
   const [data, setData] = useRecoilState(prefDataListAtom);
 
   const [error, setError] = useState<errorResponce | null>(null);
@@ -16,11 +14,8 @@ export const useFetchPrefList = () => {
   const url = 'https://opendata.resas-portal.go.jp/api/v1/prefectures';
 
   useEffect(() => {
-    // console.log('data is', data);
     setIsLoading(true);
     if (process.env.REACT_APP_RESAS_API_KEY && data.length === 0) {
-      // console.log('getData');
-
       axios
         .get(url, { headers: { 'X-API-KEY': process.env.REACT_APP_RESAS_API_KEY } })
         .then((res: AxiosResponse<apiResult<prefData[]>>) => {
@@ -37,10 +32,7 @@ export const useFetchPrefList = () => {
               description: res.data.description ? res.data.description : '',
             });
           }
-
           if (res.data.result) {
-            // console.log('setData', res.data.result);
-
             setData(res.data.result);
           }
         })
