@@ -1,4 +1,4 @@
-import { populationTypeList } from '../../../Utils/populationType';
+import { populationTypeList } from '../../../Utils/defaultDatas';
 import PopulationButton from './PopulationButton';
 
 const PopulationButtonList = () => (
