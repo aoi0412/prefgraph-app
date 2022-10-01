@@ -1,20 +1,36 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-import React from 'react';
-import './App.css';
-import { useWindowSize } from './Hooks/getWindowSize';
+import { css, cx } from '@emotion/css';
 import { useFetchPrefList } from './Hooks/useApiHooks';
 import MainPage from './Pages/page1/MainPage';
 
 const App = () => {
-  const windowSize = useWindowSize();
-  // const isLoading = useRecoilValue(isLoadingAtom);
   const result = useFetchPrefList();
   return (
-    <div style={{ height: windowSize.height, width: windowSize.width, backgroundColor: 'white' }}>
-      <div className={`splashScreen ${result.isLoading && 'splashScreen--isOpen'}`} />
+    <div className={styles.container}>
+      <div className={cx(styles.splashScreen, { [styles.splashScreenIsOpen]: result.isLoading })} />
       <MainPage />
     </div>
   );
 };
 
+const styles = {
+  container: css`
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    overflow: hidden;
+  `,
+  splashScreen: css`
+    transition: background-color 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    position: absolute;
+    pointer-events: none;
+  `,
+  splashScreenIsOpen: css`
+    pointer-events: auto;
+    background-color: white;
+  `,
+};
 export default App;

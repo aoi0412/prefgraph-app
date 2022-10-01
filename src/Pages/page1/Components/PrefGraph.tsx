@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import {
@@ -12,21 +11,20 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { css, cx } from '@emotion/css';
 import { dataForGraph, dataset } from '../../../types';
 import { dataForGraphDefault, populationTypeList } from '../../../Utils/defaultDatas';
 import { prefsPopulationDataAtom, selectedPopulationTypeAtom, selectedPrefDataAtom } from '../../../Utils/recoil';
+import Text from '../../../Components/Text';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 export const options = {
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: 'top' as const,
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Line Chart',
+      position: 'bottom' as const,
     },
   },
 };
@@ -73,6 +71,30 @@ const PrefGraph = () => {
   useEffect(() => {
     setGraphData(graphDatas[selectedPopulation]);
   }, [selectedPopulation]);
-  return <Line options={options} data={graphData} />;
+
+  return (
+    <>
+      <div className={cx(styles.noItemsText, { [styles.opacity]: !graphData.datasets.length })}>
+        <Text size="lg" bold>
+          左のメニューから都道府県を選択しよう
+        </Text>
+      </div>
+      <Line options={options} data={graphData} height={100} width={150} />
+    </>
+  );
+};
+
+const styles = {
+  noItemsText: css`
+    transition: opacity 0.4s ease-in-out;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    opacity: 0;
+  `,
+  opacity: css`
+    opacity: 1;
+  `,
 };
 export default PrefGraph;
