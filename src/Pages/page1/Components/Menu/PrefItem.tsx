@@ -8,7 +8,7 @@ type Props = {
 };
 const PrefItem: FC<Props> = ({ data }) => {
   const { isSelected, error, onSelect } = usePrefItem(data);
-  return <MenuItem title={data.prefName} isSelected={isSelected} onSelect={() => onSelect(data)} />;
+  return <MenuItem error={error} title={data.prefName} isSelected={isSelected} onSelect={() => onSelect(data)} />;
 };
 
 export default PrefItem;

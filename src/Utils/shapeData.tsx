@@ -1,4 +1,5 @@
-import { populationResult, populationType, resultData } from '../types';
+import { dataset, populationResult, populationType, prefData, prefsPopulationData, resultData } from '../types';
+import { dataForGraphDefault, populationTypeList } from './defaultDatas';
 import { setRandomColor } from './getRandomColor';
 
 export const apiToGraph = (
@@ -39,4 +40,30 @@ export const apiToGraph = (
     });
   });
   return tmp;
+};
+
+export const integratePrefData = (
+  selectedPref: prefData[],
+  populationData: prefsPopulationData,
+  yearList: string[]
+) => {
+  const tmpGraphData = dataForGraphDefault;
+
+  populationTypeList.forEach((population) => {
+    const tmp: dataset[] = [];
+
+    selectedPref.forEach((pref) => {
+      if (Object.hasOwn(populationData, pref.prefName)) {
+        const tmp2 = populationData[pref.prefName].find((data) => data.population === population)?.data;
+
+        if (tmp2) tmp.push(tmp2);
+      }
+    });
+
+    tmpGraphData[population] = {
+      labels: yearList,
+      datasets: tmp,
+    };
+  });
+  return tmpGraphData;
 };

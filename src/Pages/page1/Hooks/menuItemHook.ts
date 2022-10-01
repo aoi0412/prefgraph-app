@@ -5,6 +5,7 @@ import { errorResponce, populationResult, prefData, resultData } from '../../../
 import { prefsPopulationDataAtom, selectedPrefDataAtom } from '../../../Utils/recoil';
 import { apiToGraph } from '../../../Utils/shapeData';
 
+// メニューの都道府県選択スイッチのカスタムフック
 export const usePrefItem = (
   data: prefData
 ): { isSelected: boolean; error: errorResponce | null; onSelect: (data: prefData) => void } => {

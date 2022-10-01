@@ -1,9 +1,10 @@
 import { css } from '@emotion/css';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import Text from '../../../Components/Text';
 import { selectedPopulationTypeAtom } from '../../../Utils/recoil';
 
-const GraphTitle = () => {
+const GraphTitle: FC = () => {
   const selectedPopulation = useRecoilValue(selectedPopulationTypeAtom);
   return (
     <div className={styles.container}>
