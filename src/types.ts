@@ -13,10 +13,23 @@ export type populationTypeData = {
   data: populationSingleData[];
 };
 export type prefsPopulationData = {
-  [prefName: string]: populationTypeData[];
+  [prefName: string]: {
+    population: populationType;
+    data: dataset;
+  }[];
 };
+export type dataset = {
+  label: string;
+  data: number[];
+  borderColor: string;
+  backgroundColor: string;
+};
+
 export type dataForGraph = {
-  [type in populationType]?: { year: number; [prefName: string]: number }[];
+  [population in populationType]: {
+    labels: string[];
+    datasets: dataset[];
+  };
 };
 
 export type populationData = {
