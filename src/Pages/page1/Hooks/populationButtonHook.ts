@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import { populationType } from '../../../types';
 import { selectedPopulationTypeAtom } from '../../../Utils/recoil';
 
+// 人口構成項目のラジオボタンのカスタムフック
 export const usePopulationButton = (
   typeName: populationType
 ): [isOn: boolean, setIsOn: (typeName: populationType) => void] => {
