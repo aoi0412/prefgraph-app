@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "PrefGraph-App",
+  "name": "Prefecture Graph Application",
   "icons": [
     {
       "src": "favicon.ico",
