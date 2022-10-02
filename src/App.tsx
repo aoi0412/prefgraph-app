@@ -7,7 +7,6 @@ const App = () => {
   const result = useFetchPrefList();
   return (
     <div className={styles.container}>
-      {/* <div className={cx(styles.splashScreen, { [styles.splashScreenIsOpen]: result.isLoading })} /> */}
       <SplashScreen message={result.error ? result.error.description : ''} isLoading={result.isLoading} />
       <MainPage />
     </div>

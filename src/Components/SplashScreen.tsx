@@ -83,7 +83,7 @@ const SplashScreenItem: FC<Prop> = ({ isLoading, count, setCount, message }) => 
   }, []);
   return (
     <div className={cx(styles.splashScreen, { [styles.splashScreenIsOpen]: count > 0 })}>
-      <Line width={400} height={200} data={data} options={options} />
+      <Line width={300} height={200} data={data} options={options} />
       <Text>{isLoading ? 'ロード中...' : message || 'ロード完了！'}</Text>
     </div>
   );
@@ -91,7 +91,7 @@ const SplashScreenItem: FC<Prop> = ({ isLoading, count, setCount, message }) => 
 
 export const options = {
   responsive: false,
-  maintainAspectRatio: false,
+  maintainAspectRatio: true,
   plugins: {
     legend: {
       position: 'bottom' as const,
@@ -106,6 +106,10 @@ const styles = {
     width: 100vw;
     height: 100vh;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     pointer-events: none;
     visibility: hidden;
