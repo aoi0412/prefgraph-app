@@ -1,4 +1,5 @@
-import { css, cx } from '@emotion/css';
+import { css } from '@emotion/css';
+import SplashScreen from './Components/SplashScreen';
 import { useFetchPrefList } from './Hooks/useApiHooks';
 import MainPage from './Pages/page1/MainPage';
 
@@ -6,7 +7,7 @@ const App = () => {
   const result = useFetchPrefList();
   return (
     <div className={styles.container}>
-      <div className={cx(styles.splashScreen, { [styles.splashScreenIsOpen]: result.isLoading })} />
+      <SplashScreen message={result.error ? result.error.description : ''} isLoading={result.isLoading} />
       <MainPage />
     </div>
   );
