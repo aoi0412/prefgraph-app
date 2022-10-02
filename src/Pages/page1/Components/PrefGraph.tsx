@@ -15,7 +15,7 @@ import { usePrefGraph } from '../Hooks/prefGraphHook';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-export const options = {
+const options = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
